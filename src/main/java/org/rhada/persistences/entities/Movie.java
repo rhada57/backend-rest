@@ -16,7 +16,7 @@ public class Movie {
 	private String name;
 
 	@Field(type = FieldType.Nested)
-	private List<Genre> genre;
+	private List<Genre> genres;
 
 	private Double criticRating;
 
@@ -32,12 +32,12 @@ public class Movie {
 		this.id = id;
 	}
 
-	public List<Genre> getGenre() {
-		return genre;
+	public List<Genre> getGenres() {
+		return genres;
 	}
 
-	public void setGenre(List<Genre> genre) {
-		this.genre = genre;
+	public void setGenres(List<Genre> genres) {
+		this.genres = genres;
 	}
 
 	public String getId() {
@@ -55,8 +55,8 @@ public class Movie {
 
 	@Override
 	public String toString() {
-		return "Movie{" + "id=" + id + ", name='" + name + '\'' + ", genre="
-				+ genre + ", criticRating=" + criticRating + '}';
+		return "Movie{" + "id=" + id + ", name='" + name + '\'' + ", genres="
+				+ genres + ", criticRating=" + criticRating + '}';
 	}
 
 }
