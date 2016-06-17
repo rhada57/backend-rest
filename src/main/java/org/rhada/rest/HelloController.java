@@ -7,7 +7,10 @@ import org.rhada.persistence.repositories.MovieRepository;
 import org.rhada.persistences.entities.Genre;
 import org.rhada.persistences.entities.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -21,14 +24,12 @@ public class HelloController {
 		return ("Hello, SpringBoot on Wildfly");
 	}
 
-	@RequestMapping("movies")
-	public String getMovies() {
-		String result = "";
+	@CrossOrigin
+	@RequestMapping(path="movies", method=RequestMethod.GET)
+	public @ResponseBody Iterable<Movie> getMovies() {
+		System.out.println("hellooooooooo");
 		Iterable<Movie> movies = movieRepository.findAll();
-		for (Movie movie : movies) {
-			result += movie.toString() + "\n";
-		}
-		return result;
+		return movies;
 	}
 
 	@RequestMapping("addMovie")
@@ -36,8 +37,8 @@ public class HelloController {
 
 		Movie movie = new Movie();
 //		movie.setId("1");
-		movie.setRating(9.6d);
 		movie.setName("Star Wars");
+		movie.setCriticRating(10.2);
 
 		List<Genre> starWarsGenre = new ArrayList<Genre>();
 		starWarsGenre.add(new Genre("ACTION"));

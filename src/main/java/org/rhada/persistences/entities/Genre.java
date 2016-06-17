@@ -1,26 +1,25 @@
 package org.rhada.persistences.entities;
+
 public class Genre {
-    private String name;
+	private String name;
 
-    public Genre() {
-    }
+	public Genre() {
+	}
 
-    public Genre(String name) {
-        this.name = name;
-    }
+	public Genre(String name) {
+		this.name = name;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    @Override
-    public String toString() {
-        return "Genre{" +
-                "name='" + name + '\'' +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Genre{" + "name='" + name + '\'' + '}';
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 }
